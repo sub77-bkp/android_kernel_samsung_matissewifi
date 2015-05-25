@@ -1,0 +1,8 @@
+#!/bin/bash
+rm -fr build
+make clean && make mrproper
+make msm8226-sec_defconfig VARIANT_DEFCONFIG=msm8226-sec_matissewifiue_defconfig
+make menuconfig && wait
+cp .config arch/arm/configs/carmilla-lefanu-55X_defconfig
+make clean && make mrproper
+echo Done!
