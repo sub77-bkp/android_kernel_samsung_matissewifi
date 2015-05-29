@@ -6,7 +6,7 @@ mkdir -pv build/system/etc/firmware/wlan/prima
 export ARCH=arm
 export CROSS_COMPILE=/storage/toolchains/arm-eabi-4.8-linaro/bin/arm-eabi-
 export STRIP=/storage/toolchains/arm-eabi-4.8-linaro/bin/arm-eabi-strip
-make carmilla-lefanu-55X_defconfig
+make mina-my-love-53X_defconfig
 make menuconfig && wait
 clear
 make CONFIG_NO_ERROR_ON_MISMATCH=y -j10 && make modules
