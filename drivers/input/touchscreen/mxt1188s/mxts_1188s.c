@@ -2709,7 +2709,7 @@ static int __devinit mxt_touch_init(struct mxt_data *data, bool nowait)
 				"error requesting built-in firmware\n");
 			goto out;
 		}
-#ifdef FWUPD
+
 		mxt_request_firmware_work(fw, data);
 	} else {
 		ret = request_firmware_nowait(THIS_MODULE, true, firmware_name,
@@ -2720,7 +2720,7 @@ static int __devinit mxt_touch_init(struct mxt_data *data, bool nowait)
 				"cannot schedule firmware update (%d)\n",
 				ret);
 	}
-#endif
+
 out:
 	return ret;
 }
@@ -2759,7 +2759,6 @@ static void mxt_late_resume(struct early_suspend *h)
 	mutex_unlock(&data->input_dev->mutex);
 }
 #else
-#ifdef SUSP
 static int mxt_suspend(struct device *dev)
 {
 	struct i2c_client *client = to_i2c_client(dev);
@@ -2773,8 +2772,7 @@ static int mxt_suspend(struct device *dev)
 	mutex_unlock(&data->input_dev->mutex);
 	return 0;
 }
-#endif
-#ifdef SUSP
+
 static int mxt_resume(struct device *dev)
 {
 	struct i2c_client *client = to_i2c_client(dev);
@@ -2789,7 +2787,7 @@ static int mxt_resume(struct device *dev)
 	return 0;
 }
 #endif
-#endif
+
 /*
 #ifdef CONFIG_LEDS_QPNP
 extern void tkey_led_enables(int level);
@@ -2808,7 +2806,6 @@ static void mxt_shutdown(struct i2c_client *client)
 
 }
 */
-#ifdef SUSP
 #ifndef TSP_INIT_COMPLETE
 static void mxt_init_power_on(struct work_struct *work)
 {
@@ -2818,7 +2815,6 @@ static void mxt_init_power_on(struct work_struct *work)
 	dev_info(&data->client->dev, "%s\n", __func__);
 	mxt_start(data);
 }
-#endif
 #endif
 
 /* Added for samsung dependent codes such as Factory test,
