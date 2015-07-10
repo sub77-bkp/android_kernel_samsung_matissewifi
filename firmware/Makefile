@@ -214,7 +214,7 @@ fw-shipped-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI_JSGLTE) += tsp_synaptics/jsglt
 fw-shipped-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI_JSGLTE) += tsp_synaptics/jsglte/synaptics_b0_5_1.fw
 fw-shipped-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI_JSGLTE) += tsp_synaptics/jsglte/synaptics_b0_fac.fw
 fw-shipped-$(CONFIG_TOUCHSCREEN_SYNAPTICS_I2C_RMI_JSGLTE) += tsp_synaptics/jsglte/synaptics_b0_5_1_fac.fw
-
+#ifdef FWFM
 ifdef CONFIG_SEC_VIENNA_PROJECT
 fw-shipped-$(CONFIG_TOUCHSCREEN_ATMEL_MXT1664S) += tsp_atmel/mXT1664S_v.fw
 endif
@@ -237,7 +237,7 @@ fw-shipped-$(CONFIG_TOUCHSCREEN_ATMEL_MXT1188S) += tsp_atmel/mXT1188S.fw
 fw-shipped-$(CONFIG_TOUCHSCREEN_ATMEL_MXT1188S) += tsp_atmel/mXT1664S.fw
 endif
 endif
-
+#endif
 fw-shipped-$(CONFIG_TOUCHSCREEN_FTS) += tsp_stm/stm.fw tsp_stm/stm_de.fw tsp_stm/stm_sync.fw tsp_stm/stm_tn10.fw
 fw-shipped-$(CONFIG_TOUCHSCREEN_FTS_S) += tsp_stm/stm_s.fw
 
